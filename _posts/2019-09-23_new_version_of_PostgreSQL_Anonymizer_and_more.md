@@ -2,14 +2,14 @@
 date: 2019-09-23 10:17:36
 layout: post
 title: New version of PostgreSQL Anonymizer and more...
-description: "GDPR fines are coming and other stories !"
+description: "GDPR fines are coming and other stories!"
 category: english
 tags: ["PostgreSQL","data","masking", "anonymization", "GDPR"]
 ---
 
-One year I started a side-project cvalled [PostgreSQL Anonymizer] to study 
+One year ago, I started a side-project called [PostgreSQL Anonymizer] to study 
 and learn various ways to protect privacy using the power of PostgreSQL. 
-The project is now part of the [Dalibo Labs] intiative and we've published
+The project is now part of the [Dalibo Labs] intiative and we published
 a [new version] last week...
 
 This seems like a nice moment to analyze the progress we've made, how the GDPR 
@@ -24,22 +24,22 @@ is changing the game and where we're going....
 
 ![](https://raw.githubusercontent.com/dalibo/blog/gh-pages/img/PostgreSQL-Anonymizer_H_couleur.png)
 
-## GPDR : Sanctions are coming 
+## GPDR: Sanctions are coming 
 
 While I was working on this, the landscape has changed... When the GPDR was 
-implemented in May 2018, one the biggest questions was if the fines would be 
-signification enough to force a real change in corporate data policies....
+implemented in May 2018, one of the biggest questions was if the fines would be 
+signification enough to force a real change in corporate data policies...
 
-From what we can see, the fines are [GPDR fines are starting to fall], just 
-during July 2019 : Bristish Airways got 204 M€ and Marriott Hotels got 110 M€.
+From what we can see, [GPDR fines are starting to fall]. Just 
+during July 2019, British Airways got 204 M€ and Marriott Hotels got 110 M€.
 
 There are also smaller fines for smaller companies, what's interesting is that 
 the biggest fines are related to the [Article 32] and the « Insufficient 
 technical and organisational measures to ensure information security »
 
-In other words : **Data Leaks**.
+In other words: **Data Leaks**.
 
-Here's where anonymisation can help ! Based on my experience, we can reduce 
+Here's where anonymisation can help! Based on my experience, we can reduce 
 the risks of leaking personnal information by limiting the number of 
 environments where the data is hosted. In many staging setups such as 
 pre-production, training, development, CI, analytics, etc... the real data
@@ -48,19 +48,19 @@ real data only where it is needed and work on fake/random data everywhere
 else. When Anonymization is done the right way, the anonymized datasets are 
 not concerned by the GPDR. 
 
-In a nutshell, anonymization is powerful method to reduce your 
-**attack surface** and its a key to limit the risks GPDR penalties related to 
-data leaks.
+In a nutshell, anonymization is powerful method to reduce your **attack
+surface** and its a key to limit the risks of GPDR penalties related to data
+leaks.
 
 This is why we're investing a lot of effort to develop masking tools directly 
-inside PostgreSQL !
+inside PostgreSQL!
 
 [Art. 32]: http://www.privacy-regulation.eu/en/32.htm
 [GPDR fines are starting to fall]: http://www.enforcementtracker.com/
 
 ## Major Improvements 
 
-Over the last month, I've worked on different aspect of the extension, especially :
+Over the last month, I've worked on different aspect of the extension, especially:
 
 * Adding more tests and protections against SQL injection
 * Enabling users to export [Anonymous Dumps] using the wonderful 
@@ -90,8 +90,9 @@ One of the main drawback of the current implementation of PostgreSQL is that
 [Masking Rules] are declared using the `COMMENT` syntax which can be annoying
 if your database already has comments. 
 
-Thanks to an idea from Alvaro Herrera, I'm currently working on a new declaration syntax based on [Security Labels], a little known feature 
-also used by the [sepgsql] extension
+Thanks to an idea from Alvaro Herrera, I'm currently working on a new
+declaration syntax based on [Security Labels], a little known feature also used
+by the [sepgsql] extension
 
 [sepgsql]: https://www.postgresql.org/docs/current/sepgsql.html
 
@@ -102,13 +103,13 @@ SECURITY LABEL FOR anon ON COLUMN people.zipcode
 IS 'MASKED WITH FUNCTION anon.fake_zipcode()'
 ```
 
-This should be available in a few weeks. Of cource, the former syntax will  
+This should be available in a few weeks. Of cource, the former syntax will
 still be supported for backward compatibility.
 
-## Let's talk !
+## Let's talk!
 
-GDPR and data privacy are two very hot topics ! I will be talking about those 
-subjects in various events in the forthcoming weeks :
+GDPR and data privacy are two very hot topics! I will be talking about those 
+subjects in various events in the forthcoming weeks:
 
 * on October 14th at [PostgreSQL Conference Europe] in Milan, Italy
 * on November 14th at [Libday / Devops D-Day] in Marseille, France 
