@@ -113,6 +113,9 @@ subjects in various events in the forthcoming weeks :
 * on October 14th at [PostgreSQL Conference Europe] in Milan, Italy
 * on November 14th at [Libday / Devops D-Day] in Marseille, France 
 
+[PostgreSQL Conference Europe]: https://www.postgresql.eu/events/pgconfeu2019/schedule/session/2780-anonymization-gdpr-and-beyond/
+[Libday / Devops D-Day]: https://2019.libday.fr/programme/
+
 If you have any ideas or comments on PostgreSQL Anonymizer or more generally 
 about protecting data privacy with progress, please send me a message at 
-[damien@dalibo.com].
+<damien@dalibo.com>.
